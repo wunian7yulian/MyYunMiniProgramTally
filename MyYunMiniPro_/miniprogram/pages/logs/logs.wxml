@@ -1,0 +1,19 @@
+<view class="search">
+     <view class="search-bar">
+          <view class="search-wrap">
+               <icon type="search" size="16" class="icon-search" />
+               <input type="text" placeholder="请输入搜索内容" class="search-input" name="searchKeyword" bindinput="bindKeywordInput" value="{{searchKeyword}}" />
+          </view>
+          <view class="search-cancel" bindtap="keywordSearch">搜索</view>
+     </view>
+     <view class="search-result">
+          <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+               <view class="result-item status-color-{{item.status}} type-{{item.type}}" wx:for="{{searchList}}" wx:key="unique" data-data="{{item}}" data-id="{{item._id}}" bindtap="jump2Detail">
+                    <view class="tallysId">单号:{{item._id}}</view>
+                    <text class="subtitle">  {{item.digest}}</text>
+               </view>
+               <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+               <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+          </scroll-view>
+     </view>
+</view>

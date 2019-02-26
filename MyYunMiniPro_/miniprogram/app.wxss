@@ -1,0 +1,40 @@
+/**app.wxss**/
+
+.container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     padding: 60rpx 0;
+     box-sizing: border-box;
+}
+.container-chart {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+
+.body {
+     background-color: #eeeeee;
+     height: 100%;
+     width: 100%;
+     flex-direction: column;
+     align-items: center; /*垂直居中*/
+     justify-content: center; /*水平居中*/
+}
+
+/* 设置为一行标识*/
+
+.form_input_items_inline {
+     display: inline-block;
+     vertical-align: middle; /*垂直对齐*/
+}

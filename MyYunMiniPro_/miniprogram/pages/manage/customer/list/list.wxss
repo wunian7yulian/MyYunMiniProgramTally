@@ -1,0 +1,62 @@
+
+.navigator {
+  padding: 20rpx 30rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.navigator:before {
+  content: " ";
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  right: 30rpx;
+  height: 1px;
+  border-top: 1rpx solid #D8D8D8;
+  color: #D8D8D8;
+}
+.navigator:first-child:before {
+  display: none;
+}
+.navigator-text {
+  flex: 1;
+  margin-left: 2%
+}
+.navigator-arrow {
+  padding-right: 26rpx;
+  position: relative;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -8rpx;
+  right: 28rpx;
+}
+/* 分割线 */
+.parting{ 
+     width: 100%;
+     height: 3px;
+     background-color: #f0f0f0
+}
+.typeDes{
+     font-size: 11;
+     background-color: #b0cadf;
+     color:#e07d7d
+}
+.sell{
+color:#e07d7d
+}
+.buy{
+color:#618ce9;
+}
+.navigator-box{
+     font-size: 77%
+}

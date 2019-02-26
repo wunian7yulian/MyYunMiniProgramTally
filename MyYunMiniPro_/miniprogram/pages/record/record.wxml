@@ -1,0 +1,205 @@
+<wxs module="filters" src="../../util.wxs">
+</wxs>
+<view class='body'>
+     <view class="form_input_items">
+          <view class="form_input_items_inline form_input_items_title"> 摘要： </view>
+          <text class="form_input_items_inline form_input_items_value_disable" style="flex-direction:row;">于{{date}} {{time}} \n 在:{{customers[index].name}} Tel:{{customers[index].phone}}  \n{{type==2?'卖':'购买'}} {{variety}} {{typeName}}  \n {{totalWeight}}公斤({{singleton}}kg/件 X {{count}}件)\n 单价 {{price}}元/kg \n 共计 {{ledger}} 元
+          </text>
+     </view>
+
+     <view class="form_input_items">
+          <view class="form_input_items_inline form_input_items_title"> 账务时间:</view>
+          <view class="form_input_items_inline form_input_items_value" style="flex-direction:row;">
+               <picker mode="date" value="{{date}}" bindchange="bindDateChange" class="form_input_items_inline form_input_items_date">
+                    <view> {{date}}</view>
+               </picker>
+               <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class=" form_input_items_inline form_input_items_time">
+                    <view> {{time}}</view>
+               </picker>
+          </view>
+     </view>
+
+     <view style='display:none'>{{customerId}}</view>
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">{{type==2?'收货客户':'出货客户'}}:</view>
+          <view class="form_input_items_inline form_input_items_value">
+               <picker bindchange="bindPickerChange" value="{{index}}" range="{{customers}}" range-key="{{'name'}}">
+                    <view class='{{customers[index].del==1?"deleted":""}}' style='padding-left:2%'>{{customers[index].name}} Tel:{{customers[index].phone}}</view>
+               </picker>
+          </view>
+     </view>
+
+     <view style='display:none'>{{varietyId}}</view>
+     <view class="form_input_items">
+          <view class=" form_input_items_inline form_input_items_title">选择品种:</view>
+          <view class="form_input_items_inline form_input_items_value">
+               <radio-group name="radio" bindchange="bindVarietyChange">
+                    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+                         <label class="scroll-view-item_H" wx:for="{{varietyItems}}" class='{{item.del==1?"deleted":""}}'>
+                              <radio value="{{item._id}}" checked="{{item.checked}}"  />{{item.name}}
+                         </label>
+                    </scroll-view>
+               </radio-group>
+          </view>
+     </view>
+
+     <view style='display:none'>{{typeId}}</view>
+     <view class="form_input_items">
+          <view class=" form_input_items_inline form_input_items_title">货物类型:</view>
+          <view class="form_input_items_inline form_input_items_value">
+               <radio-group name="radio" bindchange="bindTypeChange">
+                    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+                         <label class="scroll-view-item_H" wx:for="{{typeItems}}" class='{{item.del==1?"deleted":""}}'>
+                              <radio value="{{item._id}}" checked="{{item.checked}}" />{{item.name}}
+                         </label>
+                    </scroll-view>
+               </radio-group>
+          </view>
+     </view>
+
+
+
+
+     <view class="form_input_items">
+          <view class=" form_input_items_inline form_input_items_title">☞计算器</view>
+          <view class="form_input_items_inline form_input_items_value_disable">
+               <view class='form_input_items_inline form_input_items_symbol'>(≈</view>
+               <view class='form_input_items_inline '>单件重</view>
+               <view class='form_input_items_inline form_input_items_symbol'>X</view>
+               <view class='form_input_items_inline '>件数</view>
+               <view class='form_input_items_inline form_input_items_symbol'>)X</view>
+               <view class='form_input_items_inline '>单价</view>
+               <view class='form_input_items_inline form_input_items_symbol'>≈</view>
+               <view class='form_input_items_inline '>总额</view>
+          </view>
+     </view>
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">单件计重:</view>
+          <view class="form_input_items_inline form_input_items_value" style="width:20%">
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange32" value="{{multiIndex32}}" range="{{multiArray32}}">
+                    <view class="picker">
+                         {{singleton}}
+                    </view>
+               </picker>
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>Kg/件</view>
+          <view class='form_input_items_inline form_input_items_symbol'> X </view>
+          <view class="form_input_items_inline form_input_items_title" style="width:14%">件数:</view>
+          <view class="form_input_items_inline form_input_items_value" style="width:17%">
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange31" value="{{multiIndex31}}" range="{{multiArray31}}">
+                    <view class="picker">
+                         {{count}}
+                    </view>
+               </picker>
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>件</view>
+     </view>
+
+     <view class="form_input_items_disable" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title_disable">总重
+          </view>
+          <view class='form_input_items_inline form_input_items_symbol'>=</view>
+          <view class="form_input_items_inline form_input_items_value_disable ">
+               {{filters.toFix(singleton*count)}}
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>Kg</view>
+     </view>
+
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">计入约重:</view>
+          <view class='form_input_items_inline form_input_items_symbol'>≈</view>
+          <view class="form_input_items_inline form_input_items_value " style="width:26%">
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange62" value="{{multiIndex62}}" range="{{multiArray62}}">
+                    <view class="picker">
+                         {{totalWeight}}
+                    </view>
+               </picker>
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>Kg</view>
+     </view>
+
+     <view class="form_input_items_disable" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title_disable">记公斤重:
+          </view>
+          <view class="form_input_items_inline form_input_items_value_disable ">
+               {{complex_weight}}
+          </view>
+     </view>
+
+     <view class="form_input_items_disable" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title" style='text-align:right'>
+               <view class='form_input_items_inline form_input_items_symbol'>X</view>
+          </view>
+     </view>
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">货品单价:</view>
+          <view class='form_input_items_inline form_input_items_symbol'>￥</view>
+          <view class="form_input_items_inline form_input_items_value" style='width:26%'>
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange42" value="{{multiIndex42}}" range="{{multiArray42}}">
+                    <view class="picker">
+                         {{price}}
+                    </view>
+               </picker>
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>元/Kg</view>
+     </view>
+
+     <view class="form_input_items_disable" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title_disable" style='text-align:right'>总计</view>
+          <view class='form_input_items_inline form_input_items_symbol'>=</view>
+          <view class="form_input_items_inline form_input_items_value_disable ">
+               {{filters.toFix(totalWeight*price)}}
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>元</view>
+     </view>
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">总价约计:</view>
+          <view class='form_input_items_inline form_input_items_symbol'>≈</view>
+          <view class="form_input_items_inline form_input_items_value" style='width:60%'>
+               <picker mode="multiSelector" bindchange="bindMultiPickerChange102" value="{{multiIndex102}}" range="{{multiArray102}}">
+                    <view class="picker">
+                         {{ledger}}
+                    </view>
+               </picker>
+          </view>
+          <view class='form_input_items_inline form_input_items_unit'>元</view>
+     </view>
+
+
+     <view class="form_input_items_disable" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title_disable">记人民币:
+          </view>
+          <view class="form_input_items_inline form_input_items_value_disable ">
+               {{complex}}
+          </view>
+     </view>
+
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">结账状态:</view>
+          <view class="form_input_items_inline " style='width:60%'>
+               <slider value="{{status}}" bindchange="sliderChange" block-color="{{statusColor}}" activeColor="{{statusColor}}" min="1" max="4" step="1" style='width:80% ' />
+          </view>
+          <view class="form_input_items_inline" style='color:{{statusColor}}'>{{statusVar}}</view>
+     </view>
+
+
+
+     <view class="form_input_items" style="flex-direction:row;">
+          <view class="form_input_items_inline form_input_items_title">提醒设置:</view>
+          <view class="form_input_items_inline form_input_items_value" style='width:60%'>
+               <picker mode="date" value="{{noticeDate}}" bindchange="bindNoticeDateChange" class="form_input_items_inline  {{switchChecked?'show':'hide'}} ">
+                    <view> {{noticeDate}} 提醒 </view>
+               </picker>
+          </view>
+          <switch checked="{{switchChecked}}" disabled="{{switchDisable}}" color="rgb(244,104,18)" bindchange="switchChange" />
+     </view>
+</view>
+<!-- <button type="primary" style='width:70%; background-color:transparent; color:#1aad19; border:1px solid #1aad19;' >记入账本</button> -->
+<button type="primary" bindtap="record" style='margin-top:7%;width:70%; background-color:transparent; color:#1aad19; border:1px solid #1aad19;' data-digest="{{statusVar}}  \t {{switchChecked?' \t ⏰提醒于:'+noticeDate:''}}\n 于{{date}} {{time}} \n 在:{{customers[index].name}} Tel:{{customers[index].phone}}  \n{{type==2?'卖':'购买'}} {{variety}} {{typeName}}  \n {{totalWeight}}公斤({{singleton}}kg/件 X {{count}}件)\n 单价 {{price}}元/kg \n 共计 {{ledger}} 元">{{_id==null?"记入帐本":"更新保存"}}</button>
+
+<button type="primary" class='{{_id==null?"hide":""}}' bindtap="deleteRecord" style='margin-top:4%;width:70%; background-color:transparent; color:red; border:1px solid red;'> 删除记录</button>

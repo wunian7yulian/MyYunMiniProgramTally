@@ -1,0 +1,47 @@
+form{
+     padding: 2%
+}
+/* 行  字体大小 背景颜色 */
+.form_input_items{
+   background-color: #e7f0f9;
+   font-size:95%;
+   border-top: dotted 1px rgb(173, 175, 177);
+  margin-top: 1px
+}
+
+/*标题 输入框总体设置比例 颜色*/
+.form_input_items_title{
+
+  color: rgb(224, 104, 18);
+  width: 22%;
+  text-align: left;
+  vertical-align: middle; /*垂直对齐*/ 
+  margin-left: 2%;
+  border-right: dotted 1px rgb(173, 175, 177);
+}
+
+.form_input_items_value{
+  background-color:#84bae6 ;
+  color: rgb(16, 43, 16);
+  width: 70%;
+  vertical-align: middle;
+  border-right: dotted 1px rgb(173, 175, 177);
+  border-left: dotted 1px rgb(173, 175, 177);
+}
+
+/* 单选按钮大小调整 */
+radio{  
+  zoom: 70%;
+  margin-left: 10%;
+  margin-right: 0
+}
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}
+
+

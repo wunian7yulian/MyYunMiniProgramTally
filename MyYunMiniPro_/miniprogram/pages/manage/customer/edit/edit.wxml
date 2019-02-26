@@ -1,0 +1,33 @@
+<!-- 添加客户 -->
+<view class='body'>
+     <form catchsubmit="formSubmit" catchreset="formReset">
+          <view style='font-size:50%;color:#fff'>更改： {{id}}</view>
+          <view class="form_input_items">
+               <view class="form_input_items_inline form_input_items_title">客户类型:</view>
+               <radio-group class="form_input_items_inline form_input_items_value" bindchange="selectChange" name="radio" value="{{type}}">
+                    <label>
+                         <radio value="1" checked='{{type==1?true:false}}' />卖货人</label>
+                    <label>
+                         <radio value="2" checked='{{type==2?true:false}}' />收货人</label>
+               </radio-group>
+          </view>
+
+          <view class="form_input_items">
+               <view class="form_input_items_inline form_input_items_title">客户姓名:</view>
+               <view class="form_input_items_inline form_input_items_value">
+                    <input type='' name="input" placeholder="" bindinput="setName"  maxlength="20"  value='{{name}}'/>
+               </view>
+          </view>
+          <view class="form_input_items">
+               <view class="form_input_items_inline form_input_items_title">客户电话:</view>
+               <view class="form_input_items_inline form_input_items_value">    
+                    <input  type="number" name="input" placeholder="" maxlength="11" bindinput="setPhone" value='{{phone}}' />
+               </view>
+          </view>
+
+          <button type="primary" bindtap="update" style='margin-top:7%;width:70%; background-color:transparent; color:#1aad19; border:1px solid #1aad19;'>更新</button>
+          
+          <button type="primary" bindtap="delete" style='margin-top:7%;width:70%; background-color:transparent; color:red; border:1px solid red;'>删除</button>
+     </form>
+
+</view>

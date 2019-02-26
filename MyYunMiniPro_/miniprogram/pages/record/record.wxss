@@ -1,0 +1,121 @@
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* 行  字体大小 背景颜色 */
+.form_input_items{
+   background-color: #e7f0f9;
+   font-size:95%;
+   border-top: dotted 1px rgb(173, 175, 177);
+  margin-top: 1px
+}
+
+/* 展示行 无操作行  字体大小 背景颜色 */
+.form_input_items_disable{
+  margin-top: 1rpx;
+  font-size:85%;
+}
+
+/* 展示行 无操作行 值设置*/
+.form_input_items_value_disable{
+  color: #aaaaaa;
+  vertical-align: middle;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-family: PingFang SC;
+  text-align: center;
+  font-weight:700;
+  width: 60%;
+  font-size:85%;
+}
+
+/* 单位字体颜色 */
+.form_input_items_unit{
+ vertical-align: middle; /*垂直对齐*/
+ color: rgb(85, 68, 57);
+ font-size:70%;
+ font-weight:600
+}
+/* 运算符号 */
+.form_input_items_symbol{
+  vertical-align: middle; /*垂直对齐*/
+ color: rgb(11, 1, 151);
+ font-size:80%;
+ margin-left: 2%;
+ font-weight:700;
+}
+/* 滑动选字 */
+.picker{
+ color: rgb(16, 43, 16);
+ font-family: fantasy;
+ text-align: center
+}
+/*标题 输入框总体设置比例 颜色*/
+.form_input_items_title{
+
+  color: rgb(224, 104, 18);
+  width: 22%;
+  text-align: left;
+  vertical-align: middle; /*垂直对齐*/ 
+  margin-left: 2%;
+  border-right: dotted 1px rgb(173, 175, 177);
+}
+
+.form_input_items_title_disable{
+   color: rgb(17, 8, 1);
+  width: 22%;
+  text-align: right;
+  vertical-align: middle; /*垂直对齐*/ 
+  margin-left: 2%;
+}
+
+.form_input_items_value{
+  background-color:#e7f0f9 ;
+  color: rgb(16, 43, 16);
+  width: 70%;
+  vertical-align: middle;
+  border-right: dotted 1px rgb(173, 175, 177);
+  border-left: dotted 1px rgb(173, 175, 177);
+}
+
+/* 日期 比例 */
+.form_input_items_date{
+   width: 40%;
+   margin-left: 3%
+}
+.form_input_items_time{
+   width: 30%;
+}
+/* 水平框设置 */
+.scroll-view-item_H{
+  display: inline-block;
+  margin-right: 3%;
+  vertical-align:bottom;
+}
+.scroll-view_H{
+  white-space:nowrap;
+  width: 80%;
+}
+/* 单选按钮大小调整 */
+radio{  
+  zoom: 70%;
+  margin-left: auto
+}
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}
+.deleted{
+     text-decoration:line-through;
+     color: red
+}
+.body{
+     background: #dddddd
+}

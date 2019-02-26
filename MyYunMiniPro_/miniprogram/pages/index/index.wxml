@@ -1,0 +1,12 @@
+<view class='body'>
+     <view class='half half-of-up'>
+          <view class='combination'>
+               <button bindtap="sell" style="background-image:url(image/hintIcon/add.png);background-color:#a5f3cc">记卖货</button>
+          </view>
+     </view>
+     <view class='half half-of-down'>
+          <view class='combination'>
+                 <button  bindtap="purchase" style="background-image:url(image/hintIcon/add2.png);     background-color:#84bae6 ;" >记购货</button>
+          </view>
+     </view>
+</view>

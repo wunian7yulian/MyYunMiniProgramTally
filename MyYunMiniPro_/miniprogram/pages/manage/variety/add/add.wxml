@@ -1,0 +1,16 @@
+<!-- 添加客户 -->
+<view class='body'>
+     <form catchsubmit="formSubmit" catchreset="formReset">
+
+ 
+          <view class="form_input_items">
+               <view class="form_input_items_inline form_input_items_title">货物类型:</view>
+               <view class="form_input_items_inline form_input_items_value">
+                    <input type='' name="input" placeholder="" bindinput="setName"  maxlength="20"  value='{{name}}'/>
+               </view>
+          </view>
+
+          <button type="primary" bindtap="add" style='margin-top:7%;width:70%; background-color:transparent; color:#1aad19; border:1px solid #1aad19;'>保存</button>
+     </form>
+
+</view>

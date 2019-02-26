@@ -1,0 +1,75 @@
+{
+     "pages": [
+          "pages/index/index",
+          "pages/my/my",
+          "pages/record/record",
+          "pages/logs/logs",
+          "pages/chart/pie-chart/pie-chart",
+          "pages/chart/uptrend-chart/uptrend-chart",
+
+          "pages/manage/customer/list/list",
+          "pages/manage/customer/edit/edit",
+          "pages/manage/customer/add/add",
+
+          "pages/manage/type/list/list",
+          "pages/manage/type/edit/edit",
+          "pages/manage/type/add/add",
+
+          "pages/manage/variety/list/list",
+          "pages/manage/variety/edit/edit",
+          "pages/manage/variety/add/add"
+     ],
+     "window": {
+          "navigationBarTitleText": "账务小程序-L",
+          "navigationBarBackgroundColor": "#000",
+          "navigationBarTextStyle": "white",
+          "navigationStyle": "default",
+          "backgroundTextStyle": "light",
+          "backgroundColor": "#eeeeee",
+          "enablePullDownRefresh": false
+     },
+     "tabBar": {
+          "color": "#7A7E83",
+          "selectedColor": "#3cc51f",
+          "borderStyle": "black",
+          "backgroundColor": "#ffffff",
+          "list": [
+               {
+                    "iconPath": "image/tabICon/pen.png",
+                    "selectedIconPath": "image/tabICon/pen_op.png",
+                    "pagePath": "pages/index/index",
+                    "text": "记录"
+               },
+               {
+                    "iconPath": "image/tabICon/search.png",
+                    "selectedIconPath": "image/tabICon/search_op.png",
+                    "pagePath": "pages/logs/logs",
+                    "text": "时序"
+               },
+          {
+               "iconPath": "image/tabICon/pie-chart.png",
+               "selectedIconPath": "image/tabICon/pie-chart_op.png",
+               "pagePath": "pages/chart/pie-chart/pie-chart",
+               "text": "统计"
+          },
+          {
+               "iconPath": "image/tabICon/uptrend.png",
+               "selectedIconPath": "image/tabICon/uptrend_op.png",
+               "pagePath": "pages/chart/uptrend-chart/uptrend-chart",
+               "text": "行情"
+          },
+          
+               {
+                    "iconPath": "image/tabICon/my.png",
+                    "selectedIconPath": "image/tabICon/my_op.png",
+                    "pagePath": "pages/my/my",
+                    "text": "我的"
+               }
+          ]
+     },
+     "networkTimeout": {
+          "request": 10000,
+          "downloadFile": 10000
+     },
+     "debug": true
+}

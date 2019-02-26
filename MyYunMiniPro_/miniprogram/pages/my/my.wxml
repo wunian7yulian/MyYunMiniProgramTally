@@ -1,0 +1,54 @@
+<view class='body'>
+     <!-- 头像 -->
+     <view class="container">
+          <view class="userinfo">
+               <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+               <block wx:else>
+                    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+               </block>
+          </view>
+     </view>
+     <!-- 内容 -->
+
+     <view class="parting"></view>
+     <view class="parting"></view>
+
+     <view class="items">
+          <view class=" form_input_items_inline items_title ">
+               <text>今\n日\n日\n程</text>
+          </view>
+          <view class="form_input_items_inline items_value item-hi">
+               <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="2000" vertical='true' class='item-hi'>
+                    <swiper-item wx:for="{{dataList}}" data-id="{{item._id}}" class="status-color-{{item.status}} type-{{item.type}}" bindtap="jump2Detail">
+                         <text class="swiper-item">{{item.digest}}</text>
+                    </swiper-item>
+
+               </swiper>
+          </view>
+     </view>
+
+
+     <view class="parting"></view>
+     <view class="navigator-box  ">
+          <block>
+               <navigator url="/pages/manage/customer/list/list" class="navigator">
+                    <view class="navigator-text">客户管理</view>
+                    <view class="navigator-arrow"></view>
+               </navigator>
+          </block>
+          <block>
+               <navigator url="/pages/manage/type/list/list" class="navigator">
+                    <view class="navigator-text">品种管理</view>
+                    <view class="navigator-arrow"></view>
+               </navigator>
+          </block>
+          <block>
+               <navigator url="/pages/manage/variety/list/list" class="navigator">
+                    <view class="navigator-text">货物类型管理</view>
+                    <view class="navigator-arrow"></view>
+               </navigator>
+          </block>
+     </view>
+     <view class="parting"></view>
+</view>

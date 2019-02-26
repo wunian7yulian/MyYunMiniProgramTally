@@ -1,0 +1,18 @@
+<view class="body" style='padding:2%'>
+     <button type="primary" bindtap="add" style='margin-top:0%;width:70%; background-color:transparent; color:#1aad19; border:1px solid #1aad19;'>添加品种</button>
+
+     <view class="parting" style='margin-top:3%;'></view>
+     <view class="parting"></view>
+
+
+     <view class="navigator-box  ">
+          <block wx:for="{{dataList}}" wx:key="index">
+               <navigator url="/pages/manage/type/edit/edit?id={{item._id}}" class="navigator" id="{{item._id}}">
+                    <view class="navigator-text">
+                         <view class="nameDes">品种名称: {{item.name}}</view>
+                    </view>
+                    <view class="navigator-arrow"></view>
+               </navigator>
+          </block>
+     </view>
+</view>
