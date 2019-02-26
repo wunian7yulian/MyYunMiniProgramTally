@@ -1,16 +1,9 @@
-/*
-
-     {
-          "iconPath": "image/tabICon/pie-chart.png",
-          "selectedIconPath": "image/tabICon/pie-chart_op.png",
-          "pagePath": "pages/chart/pie-chart/pie-chart",
-          "text": "统计"
-     },
-     {
-          "iconPath": "image/tabICon/uptrend.png",
-          "selectedIconPath": "image/tabICon/uptrend_op.png",
-          "pagePath": "pages/chart/uptrend-chart/uptrend-chart",
-          "text": "行情"
-     },
-
-*/
+# 微信货物记账小程序  简单实现
+## 功能:
+    出入库存记账
+    时序账及检索
+    以月为维度统计图表
+    品种行情k线图(待完成)
+    每日日程
+## 小程序码:
+  ![gh_4ae04ba9f7cc_1280](./gh_4ae04ba9f7cc_1280.jpg)
